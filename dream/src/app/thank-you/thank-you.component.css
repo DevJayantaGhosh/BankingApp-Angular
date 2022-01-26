@@ -1,0 +1,33 @@
+.btn-group {
+    margin-left: 5%;
+}
+
+.btn-group button {
+    background-color:#dc3545; /*#dc3545*/
+    border: 1px solid #794449;
+    color: white;
+    padding: 10px 24px; 
+    cursor: pointer; 
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    text-align: left;
+}

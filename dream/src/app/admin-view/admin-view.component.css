@@ -1,0 +1,60 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+
+}
+
+th {
+    text-align: left;
+    background-color:green;
+    color:white;
+
+}
+
+.btn-group {
+    margin-left: 5%;
+}
+
+.btn-group button {
+    background-color: green; /*#dc3545*/
+    border: 1px solid #794449;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.search-id {
+    margin-left: 5%;
+}
+
+.search-id label {
+    margin-right: 10px;
+}
+.search-id input {
+    margin-right: 10px;
+}
+
+.search-id button {
+    margin-right: 5px;
+    background-color:#dc3545;
+    border: 1px solid #794449;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.error {
+    color: red;
+}

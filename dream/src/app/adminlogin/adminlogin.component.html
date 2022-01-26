@@ -1,0 +1,23 @@
+
+<div class="p-3 m-3">
+<div class="jumbotron p-4 m-4">
+  <h1 class="display-4"> Admin Login Page</h1>
+</div>
+
+<div class=" container text-center w-50 h-200px">
+  <form  (ngSubmit)="onSubmit()">
+    <div class="imgcontainer">
+      <img src="assets/images/pm.png"  class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Enter your credentials to login</b></label>
+      <input type="text" placeholder="Enter User Name" name="adminname" [(ngModel)]="adminLogin.username" required>
+      <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="adminLogin.password" required>  
+      <button class="mybtn" type="submit">Login</button>
+    </div>
+    
+  </form>
+</div>
+
+

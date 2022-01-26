@@ -1,0 +1,48 @@
+<h3 class="text-center p-2 m-2"> You need to go through the following steps to complete Your Loan Application</h3>
+
+<div class="text-center" >
+  <img src="assets/images/lflow.PNG" >
+
+ </div>
+
+
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+<div class="card m-3">
+    <h2 class="card-header text-center text-danger m-3">Property Form</h2>
+    <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label>Property Location</label>
+                <input type="text" name="propertyLocation" class="form-control" [(ngModel)]="propertyDetails.property.propertyLocation" #propertyLocation="ngModel" [ngClass]="{ 'is-invalid': f.submitted && propertyLocation.invalid }" required>
+                <div *ngIf="f.submitted && propertyLocation.invalid" class="invalid-feedback">
+                    <div *ngIf="propertyLocation.errors.required">Property Location is required</div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Property Name</label>
+                    <input type="text" name="propertyName" class="form-control" [(ngModel)]="propertyDetails.property.propertyName" #propertyName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && propertyName.invalid }" required>
+                    <div *ngIf="f.submitted && propertyName.invalid" class="invalid-feedback">
+                        <div *ngIf="propertyName.errors.required">Property Name is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Estimated amount of property</label>
+                    <input type="number" name="estimatedAmount" class="form-control" [(ngModel)]="propertyDetails.property.estimatedAmount" #estimatedAmount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estimatedAmount.invalid }" required >
+                    <div *ngIf="f.submitted && estimatedAmount.invalid" class="invalid-feedback">
+                        <div *ngIf="estimatedAmount.errors.required">Estimated Amount is required</div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Next</button>
+                    <button class="btn btn-secondary" type="reset">Cancel</button>
+                </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+

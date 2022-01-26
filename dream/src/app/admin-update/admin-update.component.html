@@ -1,0 +1,230 @@
+
+<!--Make Two angular Form One for Application Tracker and One for Account Tracker-->
+<div class="p-3 m-3">
+  <div class="jumbotron p-4 m-4">
+    <h1 class="display-4"> Loan Tracker </h1>
+  </div>
+
+  <div class=" container text-center w-50 h-200px">
+    <form  (ngSubmit)="ForLoanDetails()">
+      <div class="imgcontainer">
+        <img src="assets/images/bank.png"  class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="customerAppId"><b>Enter Customer Application No:</b></label>
+        <input type="number" placeholder="Enter Application No" name="customerAppId" [(ngModel)]="customerAppId" required>
+        <button class="mybtn" type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+  <div class="card m-3">
+      <h2 class="card-header text-center text-danger m-3">Update Loan Form</h2>
+      <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && updateLoanOnSubmit()" #f="ngForm" novalidate>
+
+
+
+            <div class="form-group">
+              <label>Enter Applicaton Number</label>
+              <input type="number" name="applicationId" class="form-control" [(ngModel)]="loanDetailsforadmin.applicationId" #applicationId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && applicationId.invalid }" required>
+              <div *ngIf="f.submitted && applicationId.invalid" class="invalid-feedback">
+                  <div *ngIf="applicationId.errors.required">Application ID is required</div>
+              </div>
+          </div>
+
+                  <div class="form-group">
+                      <label>Enter Interest Rate</label>
+                      <input type="number" name="interestRate" class="form-control" [(ngModel)]="loanDetailsforadmin.interestRate" #interestRate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && interestRate.invalid }" required>
+                      <div *ngIf="f.submitted && interestRate.invalid" class="invalid-feedback">
+                          <div *ngIf="interestRate.errors.required">Interest Rate is required</div>
+                      </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label>Enter Loan Amount</label>
+                    <input type="number" name="loanAmount" class="form-control" [(ngModel)]="loanDetailsforadmin.loanAmount" #loanAmount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && loanAmount.invalid }" required>
+                    <div *ngIf="f.submitted && loanAmount.invalid" class="invalid-feedback">
+                        <div *ngIf="loanAmount.errors.required">Loan Ammount is required</div>
+                    </div>
+                </div>
+
+                  <div class="form-group">
+                      <label>Enter Tenure In Months</label>
+                      <input type="number" name="tenure" class="form-control" [(ngModel)]="loanDetailsforadmin.tenure" #tenure="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tenure.invalid }" required>
+                      <div *ngIf="f.submitted && tenure.invalid" class="invalid-feedback">
+                          <div *ngIf="tenure.errors.required">Tenure is required</div>
+                      </div>
+                  </div>
+
+              <div class="form-group">
+                  <label>Enter Customer Monthly Income </label>
+                  <input type="number" name="custincome" class="form-control" [(ngModel)]="loanDetailsforadmin.customerMonthlyIncome" #custincome="ngModel" [ngClass]="{ 'is-invalid': f.submitted && custincome.invalid }" required >
+                  <div *ngIf="f.submitted && custincome.invalid" class="invalid-feedback">
+                      <div *ngIf="custincome.errors.required">monthly income is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label>Enter Elligibility Status </label>
+                <input type="text" name="eligibilityStatus" class="form-control" [(ngModel)]="loanDetailsforadmin.eligibilityStatus" #eligibilityStatus="ngModel" [ngClass]="{ 'is-invalid': f.submitted && eligibilityStatus.invalid }" required >
+                <div *ngIf="f.submitted && eligibilityStatus.invalid" class="invalid-feedback">
+                    <div *ngIf="eligibilityStatus.errors.required">Elligibility Status is required</div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label>Enter Maximum Loan Ammount Given By Bank</label>
+              <input type="number" name="maxLoanAmount" class="form-control" [(ngModel)]="loanDetailsforadmin.maxLoanAmount" #maxLoanAmount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && maxLoanAmount.invalid }" required>
+              <div *ngIf="f.submitted && maxLoanAmount.invalid" class="invalid-feedback">
+                  <div *ngIf="maxLoanAmount.errors.required">Maximum Loan Ammount Given By Bank is required</div>
+              </div>
+          </div>
+
+            <div class="form-group">
+              <label>Enter EMI</label>
+              <input type="number"  name="emi" class="form-control" [(ngModel)]="loanDetailsforadmin.emi" #emi="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emi.invalid }" required>
+              <div *ngIf="f.submitted && emi.invalid" class="invalid-feedback">
+                  <div *ngIf="emi.errors.required">EMI is required</div>
+              </div>
+          </div>
+
+            <div class="form-group">
+              <label>Enter EMI Start Date </label>
+              <input type="date" name="startDate" placeholder="Enter Date in YYYY-MM-DD" class="form-control" [(ngModel)]="loanDetailsforadmin.startDate" #startDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && startDate.invalid }" required >
+              <div *ngIf="f.submitted && startDate.invalid" class="invalid-feedback">
+                  <div *ngIf="startDate.errors.required">EMI Start Date is required</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label>Enter EMI End Date </label>
+            <input type="date" name="endDate" placeholder="Enter Date in YYYY-MM-DD" class="form-control" [(ngModel)]="loanDetailsforadmin.endDate" #endDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && endDate.invalid }" required >
+            <div *ngIf="f.submitted && endDate.invalid" class="invalid-feedback">
+                <div *ngIf="endDate.errors.required">EMI End Date is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label>Update Loan Status </label>
+          <select type="text" name="loanStatus" placeholder="Apply/Running/Completed/Rejected" class="form-control" [(ngModel)]="loanDetailsforadmin.loanStatus" #loanStatus="ngModel" [ngClass]="{ 'is-invalid': f.submitted && loanStatus.invalid }" required >
+            <option value="Apply">Apply</option>
+            <option value="Running">Running</option>
+            <option value="Completed">Completed</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <div *ngIf="f.submitted && loanStatus.invalid" class="invalid-feedback">
+              <div *ngIf="loanStatus.errors.required">Please Update Loan Status</div>
+          </div>
+        </div>
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1">Next</button>
+                  <button class="btn btn-secondary" type="reset">Cancel</button>
+              </div>
+          </form>
+      </div>
+      <div *ngIf="showLoanMsg">
+        <h4 style="text-align: center; color: orangered;">{{ updateLoanMsg }}</h4>
+      </div>
+    </div>
+
+  </div>
+
+
+
+<!--Make Two angular Form One for Application Tracker and One for Account Tracker-->
+<div class="p-3 m-3">
+  <div class="jumbotron p-4 m-4">
+    <h1 class="display-4"> Application Tracker :</h1>
+  </div>
+
+  <div class=" container text-center w-50 h-200px">
+    <form  (ngSubmit)="onApplicationSubmit()">
+      <div class="imgcontainer">
+        <img src="assets/images/app.png"  class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="appId"><b>Enter Customer Application No:</b></label>
+        <input type="number" placeholder="Enter Application No" name="appId" [(ngModel)]="appId" required>
+        <button class="mybtn" type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+<div class="p-3">
+  <div class="p-4 m-4">
+    <div class="card text-center">
+      <div class="card-header">
+        <h3 class="text-danger">Customer Details Window</h3>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Customer Application ID is &nbsp;{{ myApplicationId }}</h5>
+        <h5 class="card-title">Customer Full Name is  &nbsp;{{ fName }}  &nbsp;{{ mName}} &nbsp;{{ lName}} </h5>
+        <h5 class="card-title">Customer Email is &nbsp; {{ custEmail }}</h5>
+        <h5 class="card-title">Customer Application Status is &nbsp; {{ applicationStatus }}</h5>
+      </div>
+      <div class="card-footer text-muted">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+  <div class="card m-3">
+      <h2 class="card-header text-center text-danger m-3">Update Application Status</h2>
+      <div class="card-body">
+          <form name="form" (ngSubmit)="f.form.valid && mySubmit()" #f="ngForm" novalidate>
+
+
+                  <div class="form-group">
+                      <label>Enter Application Number</label>
+                      <input type="number" name="applicationId" class="form-control" [(ngModel)]="updateAppStatusDetail.applicationId" #applicationId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && applicationId.invalid }" required>
+                      <div *ngIf="f.submitted && applicationId.invalid" class="invalid-feedback">
+                          <div *ngIf="applicationId.errors.required">Application ID is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Enter New Status</label>
+                      <select type="text" name="newStatus" placeholder="Apply/Approved/Rejected"  class="form-control" [(ngModel)]="updateAppStatusDetail.newStatus" #newStatus="ngModel" [ngClass]="{ 'is-invalid': f.submitted && newStatus.invalid }" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                      </select>
+                      <div *ngIf="f.submitted && newStatus.invalid" class="invalid-feedback">
+                          <div *ngIf="newStatus.errors.required">Please Enter New Updated Application Status </div>
+                      </div>
+                  </div>
+
+
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1">Create</button>
+                  <button class="btn btn-secondary" type="reset">Cancel</button>
+              </div>
+          </form>
+      </div>
+      <div *ngIf="showStatusMsg">
+        <h4 style="text-align: center; color: orangered;">{{ appStatusMsg }}</h4>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,67 @@
+<h3 class="text-center p-2 m-2"> You need to go through the following steps to complete Your Loan Application</h3>
+
+<div class="text-center" >
+  <img src="assets/images/lflow.PNG" >
+
+ </div>
+
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+<div class="card m-3">
+    <h5 class="card-header text-center text-danger">Income Form</h5>
+    <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-row">
+
+                <div class="form-group col-6">
+                    <label>Type of Employment</label>
+                    <select type="text" placeholder="Private/Government/Self Employment" name="typeofemployment" class="form-control" [(ngModel)]="incomeDetails.income.typeOfEmployement" #typeofemployment="ngModel" [ngClass]="{ 'is-invalid': f.submitted && typeofemployment.invalid }" required>
+                        <option value="Private">Private</option>
+                        <option value="Government">Government</option>
+                        <option value="Self Organization">Self Organization</option>
+                    </select>    
+                    <div *ngIf="f.submitted && typeofemployment.invalid" class="invalid-feedback">
+                        <div *ngIf="typeofemployment.errors.required">Type of Employment is required</div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label>Type of Organization</label>
+                    <select type="text" placeholder="Private/Government/Self Organization" name="organizationtype" class="form-control" [(ngModel)]="incomeDetails.income.organizationType" #organizationtype="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizationtype.invalid }" required>
+                        <option value="Corportion">Corportion</option>
+                        <option value="Public Limited">Public Limited</option>
+                        <option value="Sole Proprietorship">Sole Proprietorship</option>
+                        <option value="Government">Government</option>
+                        <option value="Other">Other</option>
+                    </select>    
+                    <div *ngIf="f.submitted && organizationtype.invalid" class="invalid-feedback">
+                        <div *ngIf="organizationtype.errors.required">Organization Type is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Employer Name</label>
+                <input type="text" placeholder="Name of Your Organization" name="employername" class="form-control" [(ngModel)]="incomeDetails.income.employerName" #employername="ngModel" [ngClass]="{ 'is-invalid': f.submitted && employername.invalid }" required >
+                <div *ngIf="f.submitted && employername.invalid" class="invalid-feedback">
+                    <div *ngIf="employername.errors.required">Employer Name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label>Retirement Age</label>
+              <input type="number" placeholder="Enter Your Retirement age" name="retirementage" class="form-control" [(ngModel)]="incomeDetails.income.retirementAge" #retirementage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && retirementage.invalid }" required >
+              <div *ngIf="f.submitted && retirementage.invalid" class="invalid-feedback">
+                  <div *ngIf="retirementage.errors.required">Retirement Age is required</div>
+              </div>
+          </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Next</button>
+                <button class="btn btn-secondary" type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>
+

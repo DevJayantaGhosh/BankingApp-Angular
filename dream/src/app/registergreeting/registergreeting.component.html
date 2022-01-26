@@ -1,0 +1,38 @@
+<div class="container-fluid pt-3 m-1">
+   <h1 style="text-align: center; color:blue"> Congratulations!! {{ name }}</h1>
+</div>
+
+
+<div  style="padding:20px ;  margin-left:350px;">
+ <img src="assets/images/grt.png" style="height: 200px; width: -75px;">
+</div>
+<div class="p-3">
+  <div class="p-4 m-4">
+    <div class="card text-center">
+      <div class="card-header">
+        <h3>You have successfully registered for Dream House</h3>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Your Application ID is &nbsp;{{ applicationId }}</h5>
+        <h5 class="card-title">Your Date of appointment is &nbsp; {{ dateOfAppointment }}</h5>
+        <p class="card-text text-danger">Please fill out rest of your information for further services.</p>
+       <!--<a [routerLink]="['/income']" class="btn btn-primary">GoTo Next</a>-->
+      </div>
+      <div class="card-footer text-muted">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid pt-1 mt-1">
+  <h3 style="text-align: center; color:rgb(255, 0, 179)"> To Complete Your Application You have to go through this process.</h3>
+</div>
+
+<div class="text-center" >
+  <img src="assets/images/lflow.PNG" >
+
+ </div>
+ <div class="text-center">
+  <a [routerLink]="['/gate']" class="btn btn-primary">GoTo Apply</a>
+ </div>

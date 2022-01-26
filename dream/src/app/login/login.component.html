@@ -1,0 +1,48 @@
+
+<div class="jumbotron jumbotron-fluid p-3 m-4">
+  <div class="container">
+    <h1 class="display-4">Login To Explore</h1>
+    <p class="lead">If you are registered customer you have to login for getting all updates about your Home Loan Application</p>
+  </div>
+</div>
+
+<div style="margin-left: 350px;">
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/images/pm.png" >
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">Admin</h5>
+
+          <a  class="btn btn-primary" [routerLink]="['/admin-login']" >Admin-Login</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/images/cm.jpg">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center p-3">Customer</h5>
+
+          <a  class="btn btn-primary"[routerLink]="['/customer-login']" >Customer-Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="card-body text-center p-3 m-3">
+  <h3 class="card-title">If you still haven't applied for a loan....</h3>
+  <h4 class="card-text">Hurry Up Make your dream-house with "DreamHouse" Finance Ltd.</h4>
+
+  <a  class="btn btn-danger" [routerLink]="['/application']">Apply Now</a>
+</div>
+<div class="card-footer text-muted">
+
+</div>

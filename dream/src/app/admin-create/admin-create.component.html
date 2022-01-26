@@ -1,0 +1,150 @@
+<!--Make Two angular Form One for Application Tracker and One for Account Tracker-->
+
+
+
+<!--Make Two angular Form One for Application Tracker and One for Account Tracker-->
+<div class="p-3 m-3">
+  <div class="jumbotron p-4 m-4">
+    <h1 class="display-4"> Application Tracker :</h1>
+  </div>
+
+  <div class=" container text-center w-50 h-200px">
+    <form  (ngSubmit)="onApplicationSubmit()">
+      <div class="imgcontainer">
+        <img src="assets/images/app.png"  class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="appId"><b>Enter Customer Application No:</b></label>
+        <input type="number" placeholder="Enter Application No" name="appId" [(ngModel)]="appId" required>
+        <button class="mybtn" type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+
+<div class="p-3" *ngIf="showDetails">
+  <div class="p-4 m-4">
+    <div class="card text-center">
+      <div class="card-header">
+        <h3 class="text-danger">Customer Details Window</h3>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Customer Application ID is &nbsp;{{ accDetailsByAdmin.applicationId }}</h5>
+        <h5 class="card-title">Customer Full Name is  &nbsp;{{ accDetailsByAdmin.account.firstName }}  &nbsp;{{ accDetailsByAdmin.account.middleName }} &nbsp;{{ accDetailsByAdmin.account.lastName }} </h5>
+        <h5 class="card-title">Customer Email is &nbsp; {{ custEmail }}</h5>
+        <h5 class="card-title">Customer Application Status is &nbsp; {{ applicationStatus }}</h5>
+        <h5 class="card-title">Customer Loan Account No &nbsp; {{ accNumber }}</h5>
+        <h5 class="card-title">Customer Account Type &nbsp; {{ accDetailsByAdmin.account.accountType}}</h5>
+        <h5 class="card-title">Customer Loan Amount &nbsp; {{  this.accDetailsByAdmin.account.amount }}</h5>
+        <p class="card-text text-danger">If Loan Account Number shows 0 ,It means Account is Not Created</p>
+      </div>
+      <div class="card-footer text-muted">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+  <div class="card m-3">
+      <h2 class="card-header text-center text-danger m-3">Loan Account Creation</h2>
+      <div class="card-body">
+          <form name="form" (ngSubmit)="f.form.valid && mySubmit()" #f="ngForm" novalidate>
+
+
+                  <div class="form-group">
+                      <label>Enter Application Number</label>
+                      <input type="number" name="applicationId" class="form-control" [(ngModel)]="accDetailsByAdmin.applicationId" #applicationId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && applicationId.invalid }" required>
+                      <div *ngIf="f.submitted && applicationId.invalid" class="invalid-feedback">
+                          <div *ngIf="applicationId.errors.required">Application ID is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Enter First Name</label>
+                      <input type="text" name="firstName" class="form-control" [(ngModel)]="accDetailsByAdmin.account.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required>
+                      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                          <div *ngIf="firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Enter Middle Name</label>
+                    <input type="text" name="middleName" class="form-control" [(ngModel)]="accDetailsByAdmin.account.middleName" #middleName="ngModel">
+
+                </div>
+
+                <div class="form-group">
+                  <label>Enter Last Name</label>
+                  <input type="text" name="lastName" class="form-control" [(ngModel)]="accDetailsByAdmin.account.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required>
+                  <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                      <div *ngIf="lastName.errors.required">Last Name is required</div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label>Enter Account Type </label>
+                  <input type="text" placeholder="Savings/Current/Salary/Loan Account" name="accountType" class="form-control" [(ngModel)]="accDetailsByAdmin.account.accountType" #accountType="ngModel" [ngClass]="{ 'is-invalid': f.submitted && accountType.invalid }" required >
+                  <div *ngIf="f.submitted && accountType.invalid" class="invalid-feedback">
+                      <div *ngIf="accountType.errors.required">Account Type  is required</div>
+                  </div>
+              </div>
+
+
+              <div class="form-group">
+                <label>Enter  Amount</label>
+                <input type="number" name="amount" class="form-control" [(ngModel)]="accDetailsByAdmin.account.amount" #amount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && amount.invalid }" required>
+                <div *ngIf="f.submitted && amount.invalid" class="invalid-feedback">
+                    <div *ngIf="amount.errors.required"> Amount is required</div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label>Enter IFSC Number </label>
+              <input type="text" name="ifscCode" class="form-control" [(ngModel)]="accDetailsByAdmin.account.ifscCode" #ifscCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ifscCode.invalid }" required >
+              <div *ngIf="f.submitted && ifscCode.invalid" class="invalid-feedback">
+                  <div *ngIf="ifscCode.errors.required">IFSC Number  is required</div>
+              </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label>Enter Branch Code </label>
+            <input type="text" name="branchCode" class="form-control" [(ngModel)]="accDetailsByAdmin.account.branchCode" #branchCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && branchCode.invalid }" required >
+            <div *ngIf="f.submitted && branchCode.invalid" class="invalid-feedback">
+                <div *ngIf="branchCode.errors.required">Branch Code is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label>Enter Branch Name </label>
+          <input type="text" name="branchName" class="form-control" [(ngModel)]="accDetailsByAdmin.account.branchName" #branchName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && branchName.invalid }" required >
+          <div *ngIf="f.submitted && branchName.invalid" class="invalid-feedback">
+              <div *ngIf="branchName.errors.required">Branch Name is required</div>
+          </div>
+      </div>
+
+              <div class="text-center">
+                  <button class="btn btn-primary mr-1">Create</button>
+                  <button class="btn btn-secondary" type="reset">Cancel</button>
+              </div>
+          </form>
+      </div>
+      <div *ngIf="showError">
+        <h4 style="text-align: center; color: orangered;">{{ msg }}</h4>
+      </div>
+      <div *ngIf="showMsg">
+        <h4 style="text-align: center; color: green;">{{ msg }}</h4>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,238 @@
+<div class="btn-group justify-content-center align-content-center d-flex">
+    <button (click)="viewApplications()" >View all Applications</button>
+    <button (click)="viewIncomeList()" >View all Income List</button>
+    <button (click)="viewPropertyList()" >View all Property List</button>
+    <button (click)="viewLoanList()" >View all Loan List</button>
+</div>
+<br />
+<br />
+<div class="search-id">
+    <label for="applicationId"><b>Enter Application No:</b></label>
+    <input type="number" placeholder="Enter Application No" name="applicationId" [(ngModel)]="applicationId" required>
+    <button (click)="viewAppDetail()" type="submit">Search App Details</button>
+    <button (click)="viewIncomeDetail()" type="submit">Search Income Details</button>
+    <button (click)="viewPropertyDetail()" type="submit">Search Property Details</button>
+    <button (click)="viewLoanDetail()" type="submit">Search Loan Details</button>
+    <button (click)="viewDocuments()" type="submit">View Documents</button><br />
+    <div class="error" *ngIf="showError">
+        <p>{{ errorMsg }}</p>
+    </div>
+</div>
+<br />
+<br />
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showApplication">
+    <table style="width:100%">
+        <tr>
+            <th>Application Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>DOB</th>
+            <th>Aadhar</th>
+            <th>Pan</th>
+            <th>Appointment Date</th>
+        </tr>
+        <tr *ngFor="let app of applications">
+            <td>{{ app.applicationId }}</td>
+            <td>{{ app.firstname }}</td>
+            <td>{{ app.lastname }}</td>
+            <td>{{ app.email }}</td>
+            <td>{{ app.phoneNo }}</td>
+            <td>{{ app.dateOfBirth }}</td>
+            <td>{{ app.aadharNo }}</td>
+            <td>{{ app.panNo }}</td>
+            <td>{{ app.dateOfAppointment }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showIncomeList">
+    <table style="width:100%">
+        <tr>
+            <th>Income Id</th>
+            <th>Employment Type</th>
+            <th>Organization Type</th>
+            <th>Employer Name</th>
+            <th>Application Id</th>
+        </tr>
+        <tr *ngFor="let income of incomeList">
+            <td>{{ income.incomeId }}</td>
+            <td>{{ income.typeOfEmployement }}</td>
+            <td>{{ income.organizationType }}</td>
+            <td>{{ income.employerName }}</td>
+            <td>{{ income.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showPropertyList">
+    <table style="width:100%">
+        <tr>
+            <th>Property Id</th>
+            <th>Property Location</th>
+            <th>Property Name</th>
+            <th>Estimated Value</th>
+            <th>Application Id</th>
+        </tr>
+        <tr *ngFor="let property of propertyList">
+            <td>{{ property.propertyId }}</td>
+            <td>{{ property.propertyLocation }}</td>
+            <td>{{ property.propertyName }}</td>
+            <td>{{ property.estimatedAmount }}</td>
+            <td>{{ property.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showLoanList">
+    <table style="width:100%">
+        <tr>
+            <th>Loan Id</th>
+            <th>Interest Rate</th>
+            <th>Loan Amt.</th>
+            <th>Max Loan Amt.</th>
+            <th>Monthly Income</th>
+            <th>Eligibility Status</th>
+            <th>Emi startdate</th>
+            <th>Emi enddate</th>
+            <th>Emi</th>
+            <th>Tenure(months)</th>
+            <th>Loan Status</th>
+            <th>Application Id</th>
+        </tr>
+        <tr *ngFor="let loan of loanList">
+            <td>{{ loan.loanId }}</td>
+            <td>{{ loan.interestRate }}</td>
+            <td>{{ loan.loanAmount }}</td>
+            <td>{{ loan.maxLoanAmount }}</td>
+            <td>{{ loan.customerMonthlyIncome }}</td>
+            <td>{{ loan.eligibilityStatus }}</td>
+            <td>{{ loan.startDate }}</td>
+            <td>{{ loan.endDate }}</td>
+            <td>{{ loan.emi }}</td>
+            <td>{{ loan.tenure }}</td>
+            <td>{{ loan.loanStatus }}</td>
+            <td>{{ loan.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showAppDetail">
+    <table style="width:100%">
+        <tr>
+            <th>Application Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>DOB</th>
+            <th>Aadhar</th>
+            <th>Pan</th>
+            <th>Appointment Date</th>
+        </tr>
+        <tr>
+            <td>{{ appDetail.applicationId }}</td>
+            <td>{{ appDetail.firstname }}</td>
+            <td>{{ appDetail.lastname }}</td>
+            <td>{{ appDetail.email }}</td>
+            <td>{{ appDetail.phoneNo }}</td>
+            <td>{{ appDetail.dateOfBirth }}</td>
+            <td>{{ appDetail.aadharNo }}</td>
+            <td>{{ appDetail.panNo }}</td>
+            <td>{{ appDetail.dateOfAppointment }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showIncomeDetail">
+    <table style="width:100%">
+        <tr>
+            <th>Income Id</th>
+            <th>Employment Type</th>
+            <th>Organization Type</th>
+            <th>Employer Name</th>
+            <th>Application Id</th>
+        </tr>
+        <tr>
+            <td>{{ incomeDetail.incomeId }}</td>
+            <td>{{ incomeDetail.typeOfEmployement }}</td>
+            <td>{{ incomeDetail.organizationType }}</td>
+            <td>{{ incomeDetail.employerName }}</td>
+            <td>{{ incomeDetail.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showPropertyDetail">
+    <table style="width:100%">
+        <tr>
+            <th>Property Id</th>
+            <th>Property Location</th>
+            <th>Property Name</th>
+            <th>Estimated Value</th>
+            <th>Application Id</th>
+        </tr>
+        <tr>
+            <td>{{ propertyDetail.propertyId }}</td>
+            <td>{{ propertyDetail.propertyLocation }}</td>
+            <td>{{ propertyDetail.propertyName }}</td>
+            <td>{{ propertyDetail.estimatedAmount }}</td>
+            <td>{{ propertyDetail.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 15px; margin-right: 20px;" *ngIf="showLoanDetail">
+    <table style="width:100%">
+        <tr>
+            <th>Loan Id</th>
+            <th>Interest Rate</th>
+            <th>Loan Amt.</th>
+            <th>Max Loan Amt.</th>
+            <th>Monthly Income</th>
+            <th>Eligibility Status</th>
+            <th>Emi startdate</th>
+            <th>Emi enddate</th>
+            <th>Emi</th>
+            <th>Tenure(months)</th>
+            <th>Loan Status</th>
+            <th>Application Id</th>
+        </tr>
+        <tr>
+            <td>{{ loanDetail.loanId }}</td>
+            <td>{{ loanDetail.interestRate }}</td>
+            <td>{{ loanDetail.loanAmount }}</td>
+            <td>{{ loanDetail.maxLoanAmount }}</td>
+            <td>{{ loanDetail.customerMonthlyIncome }}</td>
+            <td>{{ loanDetail.eligibilityStatus }}</td>
+            <td>{{ loanDetail.startDate }}</td>
+            <td>{{ loanDetail.endDate }}</td>
+            <td>{{ loanDetail.emi }}</td>
+            <td>{{ loanDetail.tenure }}</td>
+            <td>{{ loanDetail.loanStatus }}</td>
+            <td>{{ loanDetail.applicationId }}</td>
+        </tr>
+    </table>
+</div>
+
+<div style="margin-left: 70px; margin-right: 70px;" *ngIf="showDoc">
+    <table style="width:100%">
+        <tr>
+            <th>Pan Card</th>
+            <th>Voter Card</th>
+            <th>Salary Slip</th>
+            <th>Letter of Agreement</th>
+            <th>NOC from builder</th>
+            <th>Agreement to Sale</th>
+        </tr>
+        <tr>
+            <td><a href="http://localhost:9292/download/{{ doc.panCard }}" target="_blank">View Pan Card</a></td>
+            <td><a href="http://localhost:9292/download/{{ doc.voterIdCard }}" target="_blank">View Voter Card</a></td>
+            <td><a href="http://localhost:9292/download/{{ doc.salarySlip }}" target="_blank">View Salary Slip</a></td>
+            <td><a href="http://localhost:9292/download/{{ doc.loa }}" target="_blank">View LOA</a></td>
+            <td><a href="http://localhost:9292/download/{{ doc.nocFromBuilder }}" target="_blank">View NOC</a></td>
+            <td><a href="http://localhost:9292/download/{{ doc.agreementToSale }}" target="_blank">View Sale Agreement</a></td>
+        </tr>
+    </table>
+</div>

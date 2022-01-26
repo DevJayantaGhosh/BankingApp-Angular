@@ -1,0 +1,75 @@
+
+<div class="justify-content-center align-content-center d-flex mt-4">
+
+    <img src="assets/images/ur.png" >
+
+</div>
+
+
+<h1 class="text-center " style="color: #ff5e00;">Hi {{name}}, Welcome To Customer-DashBoard</h1>
+
+<div class="justify-content-center align-content-center d-flex">
+  <a  class="btn btn-danger "  [routerLink]="['/home']">Logout</a>
+</div>
+
+<!--Make Two angular Form One for Application Tracker and One for Account Tracker-->
+<div class="p-3 m-3">
+    <div class="jumbotron p-4 m-4">
+      <h1 class="display-4"> Application Tracker :</h1>
+    </div>
+
+    <div class=" container text-center w-50 h-200px">
+      <form  (ngSubmit)="onApplicationSubmit()">
+        <div class="imgcontainer">
+          <img src="assets/images/app.png"  class="avatar">
+        </div>
+
+        <div class="container">
+          <label for="applicationId"><b>Enter your Application No:</b></label>
+          <input type="number" placeholder="Enter Application No" name="applicationId" [(ngModel)]="applicationId" required>
+          <button class="mybtn" type="submit">Submit</button>
+        </div>
+
+      </form>
+      <div *ngIf="showAppStatus">
+        <h4>{{appdetail.firstname}} {{appdetail.middlename}} {{appdetail.lastname}}</h4>
+        <h4>Your application Status: {{ statusMsg }}</h4>
+        <h4>Date of Appointment {{appdetail.dateOfAppointment}}</h4>
+        <h4>Loan Account No:{{appdetail.accountNo}}</h4>
+      </div>
+      <div *ngIf="showAppError">
+        <h4 style="color: orangered;">{{ statusMsg }}</h4>
+      </div>
+    </div>
+
+</div>
+
+<div class="p-3 m-3">
+    <div class="jumbotron p-4 m-4">
+      <h1 class="display-4"> Account Tracker</h1>
+    </div>
+
+    <div class=" container text-center w-50 h-200px">
+      <form  (ngSubmit)="onAccountSubmit()">
+        <div class="imgcontainer">
+          <img src="assets/images/fbk.jpg"  class="avatar">
+        </div>
+
+        <div class="container">
+          <label for="accountNo"><b>Enter your Account No</b></label>
+          <input type="number" placeholder="Enter Account No" name="accountNo" [(ngModel)]="accountNo" required>
+          <button class="mybtn" type="submit">Submit</button>
+        </div>
+
+      </form>
+      <div *ngIf="showAccStatus">
+        <h5>Your Account Type: {{ accType }}</h5>
+        <h5>IFSC Code: {{ ifscCode }}</h5>
+        <h5>Branch Name: {{ branchName }}</h5>
+      </div>
+      <div *ngIf="showAccError">
+        <h4 style="color: orangered;">{{ statusMsg }}</h4>
+      </div>
+    </div>
+
+</div>

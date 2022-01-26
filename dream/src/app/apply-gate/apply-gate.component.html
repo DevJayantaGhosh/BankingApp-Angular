@@ -1,0 +1,51 @@
+<h1 class="text-center p-2 m-2">Welcome to The DreamHouse Application Portal</h1>
+
+<div class="card text-center m-3">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h3 class="card-text">“Home is the starting place of love, hope and dreams.”</h3>
+    <h4>If you haven't registered yet....Go and Register Youself</h4>
+    <a  class="btn btn-danger" [routerLink]="['/application']">Register Now</a>
+  </div>
+  <div class="card-footer text-muted">
+
+  </div>
+</div>
+<h3 class="text-center p-2 m-2">If You have already registered Yourself then you need to go through the following steps</h3>
+
+<div class="text-center" >
+  <img src="assets/images/lflow.PNG" >
+
+ </div>
+
+
+ <div class=" container text-center w-50 h-50px">
+  <form (ngSubmit)="trackForm()">
+    <div class="imgcontainer">
+      <img src="assets/images/api.jpg"  class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>GoTo Pending Application Section</b></label>
+      <input type="text" placeholder="Enter Application Number" name="applicationNo" [(ngModel)]="applicationId" required>
+
+      <button class="mybtn" type="submit">GoTo</button>
+
+    </div>
+  </form>
+</div>
+
+
+
+<div class="card-body text-center">
+  <h5 class="card-title"></h5>
+  <h3 class="card-text">“Edit Your Registration Form”</h3>
+  <h4>If you  want to edit your Registration details....Go and Edit Youself</h4>
+  <a  class="btn btn-danger" [routerLink]="['/alledit']">Edit Now</a>
+</div>
+<div class="card-footer text-muted">
+
+</div>

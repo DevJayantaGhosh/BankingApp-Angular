@@ -1,0 +1,50 @@
+
+<h3 class="text-center p-2 m-2"> You need to go through the following steps to complete Your Loan Application</h3>
+
+<div class="text-center" >
+  <img src="assets/images/lflow.PNG" >
+
+ </div>
+<!-- main app container -->
+<div style="width: 900px; margin-left:250px">
+<div class="card m-3">
+    <h2 class="card-header text-center text-danger m-3">Loan Form</h2>
+    <div class="card-body">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+
+                <div class="form-group">
+                    <label>Enter Loan Amount</label>
+                    <input type="number" name="loanamount" class="form-control" [(ngModel)]="loanDetails.loan.loanAmount" #loanamount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && loanamount.invalid }" required>
+                    <div *ngIf="f.submitted && loanamount.invalid" class="invalid-feedback">
+                        <div *ngIf="loanamount.errors.required">Loan Amount is required</div>
+                    </div>
+                    <div style="color: red;">Loan Amount Cannot be more than {{estimatedamount}}</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Enter Tenure In Months</label>
+                    <input type="number" name="tenure" class="form-control" [(ngModel)]="loanDetails.loan.tenure" #tenure="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tenure.invalid }" required>
+                    <div *ngIf="f.submitted && tenure.invalid" class="invalid-feedback">
+                        <div *ngIf="tenure.errors.required">Tenure is required</div>
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <label>Enter Your Monthly Income </label>
+                <input type="number" name="custincome" class="form-control" [(ngModel)]="loanDetails.loan.customerMonthlyIncome" #custincome="ngModel" [ngClass]="{ 'is-invalid': f.submitted && custincome.invalid }" required >
+                <div *ngIf="f.submitted && custincome.invalid" class="invalid-feedback">
+                    <div *ngIf="custincome.errors.required">monthly income is required</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Next</button>
+                <button class="btn btn-secondary" type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>
+

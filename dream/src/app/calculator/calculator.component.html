@@ -1,0 +1,59 @@
+
+<div class="jumbotron p-4 m-4">
+  <div class="container">
+    <h1 class="display-4 text-danger"> Eligibility Calculator</h1>
+    <p class="lead">This is an online tool to determine the Eligibility of a customer that how much a loan can customer takes</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class=" container text-center w-50 h-200px">
+  <form  method="post">
+    <div class="imgcontainer">
+      <img src="assets/images/cal.jpg"  class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Eligibility Calculator</b></label><br/>
+      <label for="uname" style="color:blue"><b>Elligible For {{loanAmmount}} Loan Ammount</b></label>
+      <input type="text" placeholder="Enter Net Monthly Salary " name="uname"  [(ngModel)]="monthlyIncome" required>
+
+      <button (click)="elligibilityCal()" >Calculate</button>
+
+    </div>
+  </form>
+</div>
+
+
+
+<div class="jumbotron p-4 m-4">
+  <div class="container">
+    <h1 class="display-4 text-danger">EMI Calculator</h1>
+    <p class="lead">This is an online tool to determine the monthly EMI, which need to pay by Customer</p>
+  </div>
+</div>
+
+
+
+
+<div class=" container text-center w-50 h-200px">
+  <form  method="post">
+    <div class="imgcontainer">
+      <img src="assets/images/cal2.jpg"  class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>EMI Calculator</b></label><br/>
+      <label for="uname" style="color:blue"><b>You Have To Pay {{emi}} EMI</b></label>
+      <input type="text" placeholder="Enter Loan Amount " name="loanamount" [(ngModel)]="p" required>
+      <input type="text" placeholder="Enter Number of Months (Loan Tenure) " name="tenure" [(ngModel)]="n" required>
+      <button (click)="emiCal()" >Calculate</button>
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+<div class="p-3 m-3">
+    <div class="jumbotron p-4 m-4">
+      <h1 class="display-4"> Customer Login Page</h1>
+    </div>
+    <div class=" container text-center w-50 h-200px">
+      <form  (ngSubmit)="onSubmit()">
+        <div class="imgcontainer">
+          <img src="assets/images/cm.jpg"  class="avatar">
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Enter Your credentials to login</b></label>
+          <input type="text" placeholder="Enter your email address" name="customeremail" [(ngModel)]="userlogin.email" required>
+          <input type="password" placeholder="Enter Password" name="customerpassword" [(ngModel)]="userlogin.password" required>
+          <button class="mybtn" type="submit">Login</button>
+          <a   [routerLink]="['/forgot-psw']">Forgot Password ?</a>
+
+
+        </div>
+      </form>
+    </div>

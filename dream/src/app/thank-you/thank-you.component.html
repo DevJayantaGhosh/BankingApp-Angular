@@ -1,0 +1,103 @@
+<div class="container-fluid pt-3 m-1">
+    <h1 style="text-align: center; color:orange"> Congratulations {{ appDetail.firstname }}</h1>
+</div>
+<div class="p-3">
+    <div class="p-4 m-4">
+        <div class="card text-center">
+            <div class="card-header">
+                <h3>View your submitted details</h3><br/>
+                <div class="btn-group">
+                    <button (click)="viewAppDetail()">Application Details</button>
+                    <button (click)="viewIncomeDetail()">Income Details</button>
+                    <button (click)="viewPropertyDetail()">Property Details</button>
+                    <button (click)="viewLoanDetail()">Loan details</button>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div style="margin-left: 15px; margin-right: 20px;" *ngIf="showAppDetail">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Application Id</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>DOB</th>
+                            <th>Aadhar No.</th>
+                            <th>Pan No.</th>
+                            <th>Appointment Date</th>
+                        </tr>
+                        <tr>
+                            <td>{{ appDetail.applicationId }}</td>
+                            <td>{{ appDetail.firstname }}</td>
+                            <td>{{ appDetail.middlename }}</td>
+                            <td>{{ appDetail.lastname }}</td>
+                            <td>{{ appDetail.email }}</td>
+                            <td>{{ appDetail.phoneNo }}</td>
+                            <td>{{ appDetail.dateOfBirth }}</td>
+                            <td>{{ appDetail.aadharNo }}</td>
+                            <td>{{ appDetail.panNo }}</td>
+                            <td>{{ appDetail.dateOfAppointment }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="margin-left: 15px; margin-right: 20px;" *ngIf="showIncomeDetail">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Employment Type</th>
+                            <th>Organization Type</th>
+                            <th>Employer Name</th>
+                        </tr>
+                        <tr>
+                            <td>{{ incomeDetail.typeOfEmployement }}</td>
+                            <td>{{ incomeDetail.organizationType }}</td>
+                            <td>{{ incomeDetail.employerName }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="margin-left: 15px; margin-right: 20px;" *ngIf="showPropertyDetail">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Property Location</th>
+                            <th>Property Name</th>
+                            <th>Estimated Value(₹)</th>
+                        </tr>
+                        <tr>
+                            <td>{{ propertyDetail.propertyLocation }}</td>
+                            <td>{{ propertyDetail.propertyName }}</td>
+                            <td>{{ propertyDetail.estimatedAmount }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="margin-left: 15px; margin-right: 20px;" *ngIf="showLoanDetail">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Interest Rate</th>
+                            <th>Loan Amt.(₹)</th>
+                            <th>Monthly Income(₹)</th>
+                            <th>Tenure(months)</th>
+                        </tr>
+                        <tr>
+                            <td>{{ loanDetail.interestRate }}</td>
+                            <td>{{ loanDetail.loanAmount }}</td>
+                            <td>{{ loanDetail.customerMonthlyIncome }}</td>
+                            <td>{{ loanDetail.tenure }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="card-footer text-muted">
+                <h4>To go to login page <a href="/login">Click Here</a></h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center">Thank You !</h1>
